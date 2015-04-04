@@ -1,7 +1,7 @@
 /*jshint laxbreak: true */
 /*jslint white: true */
-/*global window */
-(function (window) {
+/*global define */
+define(function () {
     'use strict';
 
     /* Template constructor */
@@ -185,7 +185,8 @@
         return view;
     };
 
-    // Export to window
-    window.app = window.app || {};
-    window.app.Template = Template;
-}(window));
+    // Export to Require JS
+    return {
+        Template: Template
+    };
+});

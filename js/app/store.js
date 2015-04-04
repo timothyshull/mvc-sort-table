@@ -1,5 +1,5 @@
-/*global window, localStorage */
-(function (window) {
+/*global define, localStorage */
+define(function () {
     'use strict';
 
     // Helper function to avoid syntax error with unexpected tokens
@@ -67,7 +67,8 @@
         callback.call(this, checkJSON(localStorage[JSON.stringify(this._dbName)]));
     };
 
-    // Export to window
-    window.app = window.app || {};
-    window.app.Store = Store;
-}(window));
+    // Export to Require JS
+    return {
+        Store: Store
+    };
+});

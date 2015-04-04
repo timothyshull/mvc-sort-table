@@ -1,6 +1,8 @@
-/*global qs, qsa, $on, window */
-(function (window) {
+/*global define */
+define(['./helpers'], function (helpers) {
     'use strict';
+    
+    var qs = helpers.qs, qsa = helpers.qsa, $on = helpers.$on; 
 
     function View(template) {
         this.template = template;
@@ -44,8 +46,9 @@
             }
         }
     };
-
-    // Export to window
-    window.app = window.app || {};
-    window.app.View = View;
-}(window));
+    
+    // Export to Require JS
+    return {
+        View: View
+    };
+});

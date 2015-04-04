@@ -1,6 +1,8 @@
-/*global window */
-(function (window) {
+/*global define */
+define(['./helpers'], function (helpers) {
     'use strict';
+    
+    var sortByIndex = helpers.sortByIndex;
 
     /* Model constructor, connect to storage, expects model of type {"fields";[],"values:[]} */
     function Model(storage) {
@@ -49,10 +51,10 @@
         });
 
         if (dir === "desc") {
-            inter = window.sortByIndex(temp, index);
+            inter = sortByIndex(temp, index);
             this.update(inter.reverse(), callback);
         } else {
-            inter = window.sortByIndex(temp, index);
+            inter = sortByIndex(temp, index);
             this.update(inter, callback);
         }
     };
@@ -82,7 +84,8 @@
         });
     };
 
-    // Export to window
-    window.app = window.app || {};
-    window.app.Model = Model;
-}(window));
+    // Export to Require JS
+    return {
+        Model: Model
+    };
+});

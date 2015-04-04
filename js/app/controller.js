@@ -1,5 +1,5 @@
-/*global document, window */
-(function (window) {
+/*global document, define */
+define(function () {
     'use strict';
 
     /* Controller constructor, initialize with properties for navigation control */
@@ -149,7 +149,8 @@
         this._filter();
     };
 
-    // Export to window
-    window.app = window.app || {};
-    window.app.Controller = Controller;
-}(window));
+    // Export to Require JS
+    return {
+        Controller: Controller
+    };
+});
