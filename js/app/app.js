@@ -8,7 +8,7 @@ define(['./helpers', './store', './model', './template', './view', './controller
         View = view.View,
         Controller = controller.Controller,
         appName = 'mvc-sort-table',
-        dataFile = 'data.json',
+        dataFile = 'mvc-sort-table/data.json',
         event = new Event('storageSaved'),
         sortTable;
 
